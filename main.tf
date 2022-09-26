@@ -5,8 +5,7 @@ resource "aws_route_table" "vpc_flow_logs-public-crt" {
   vpc_id = aws_vpc.vpc_flow_logs.id
 
   route {
-    //associated subnet can reach everywhere
-    cidr_block = "0.0.0.0/0"         //CRT uses this IGW to reach internet
+    cidr_block = "0.0.0.0/0"         
     gateway_id = aws_internet_gateway.vpc_flow_logs-igw-.id
   }
  }
@@ -27,7 +26,7 @@ resource "aws_security_group" "ssh-allowed" {
   ingress {
     from_port = 22
     to_port = 22
-    protocol = "tcp"        // This means, all ip address are allowed to ssh !
+    protocol = "tcp"        
     cidr_blocks = ["0.0.0.0/0"]
   }
   ingress {
