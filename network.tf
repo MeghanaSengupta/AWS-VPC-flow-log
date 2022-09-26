@@ -5,7 +5,6 @@ resource "aws_route_table" "vpc_flow_logs-public-crt" {
   vpc_id = aws_vpc.vpc_flow_logs.id
 
   route {
-    //associated subnet can reach everywhere
     cidr_block = "0.0.0.0/0"         
     gateway_id = aws_internet_gateway.vpc_flow_logs-igw-.id
   }
